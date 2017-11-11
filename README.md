@@ -25,7 +25,7 @@ Yet another Ruby wrapper for [Robokassa API][]. Make Robokassa to work with your
 
 Add to your `Gemfile`:
 
-    gem "rubykassa"
+    gem "rubykassa", github: "trembolon58/rubykassa"
 
 ## Usage
 
