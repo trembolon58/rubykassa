@@ -1,11 +1,12 @@
 ## The Rubykassa gem
-Добавлена поддержка Rails 5.1
 [![Gem Version](https://badge.fury.io/rb/rubykassa.png)](http://badge.fury.io/rb/rubykassa)
 [![Build Status](https://secure.travis-ci.org/ZeroOneStudio/rubykassa.png)](http://travis-ci.org/ZeroOneStudio/rubykassa)
 [![Coverage Status](https://coveralls.io/repos/ZeroOneStudio/rubykassa/badge.png)](https://coveralls.io/r/ZeroOneStudio/rubykassa)
 [![Code Climate](https://codeclimate.com/github/ZeroOneStudio/rubykassa.png)](https://codeclimate.com/github/ZeroOneStudio/rubykassa)
 [![Dependency Status](https://gemnasium.com/ZeroOneStudio/rubykassa.png)](https://gemnasium.com/ZeroOneStudio/rubykassa)
 [![Inline docs](http://inch-ci.org/github/ZeroOneStudio/rubykassa.svg?branch=master)](http://inch-ci.org/github/ZeroOneStudio/rubykassa)
+
+Добавлена поддержка Rails 5.1
 
 by [Zero One][]
 
@@ -53,14 +54,14 @@ To define custom success/fail callbacks you can also use the initializer:
 
     Rubykassa.configure do |config|
       ...
-      config.success_callback = ->(notification) { render text: 'success' }
+      config.success_callback = ->(notification) { render plain: 'success' }
       config.fail_callback    = ->(notification) { redirect_to root_path }
-      config.result_callback  = ->(notification) { render text: notification.success }
+      config.result_callback  = ->(notification) { render plain: notification.success }
     end
 
 Lambdas are called in RobokassaController so you can respond with [any kind that is supported by Rails](http://guides.rubyonrails.org/layouts_and_rendering.html#creating-responses).
 
-NOTE: `result_callback` should always return `"OK#{invoice_id}"` string. So, implement your custom logic above `render text: notification.success` line.
+NOTE: `result_callback` should always return `"OK#{invoice_id}"` string. So, implement your custom logic above `render plain: notification.success` line.
 
 IMPORTANT: Don't forget to restart web server after every change
 
